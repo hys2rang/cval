@@ -15,11 +15,10 @@ int main()
 		int n;
 		printf("숫자를 입력해보세요 : ");
 		scanf("%d", &n);
-		
-		if (cnt>2 && ((buf>ans && n>ans)|| (buf < ans && n < ans))) {
+		if (cnt>=2 && ((buf<=n && ans<n)|| (buf>=n && ans>n))) {
 			printf("아니라고\n");
 		}
-		else {			
+		else {					
 			if (ans > n) {
 				printf("그보단 크지요\n");
 			}
@@ -30,6 +29,7 @@ int main()
 				printf("%d번만에 맞추셨습니다.", cnt);
 				break;
 			}
+			
 		}
 		buf = n;
 	}
