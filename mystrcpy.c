@@ -3,10 +3,7 @@
 #pragma warning(disable:4996)
 void my_strcpy(char *a, char *b)
 {
-	while (*b) {
-		*a++ = *b++;
-	}
-	*a = NULL;
+	while (*a++ = *b++);
 }
 int main()
 {
