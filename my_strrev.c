@@ -14,7 +14,7 @@ void my_strrev(char *str)
 {
 	char buf[20] = "";
 	int idx=0;
-	while (str[idx++] != NULL);
+	while (str[idx++]);
 	for (int i = idx - 2; i >= 0; i--) {
 		buf[idx - i - 2] = str[i];
 	}
