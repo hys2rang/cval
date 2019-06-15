@@ -12,12 +12,13 @@ int main(int argc, char** argv)
 	else {
 		puts("false");
 	}
-	a = a | (5 << 1);
+	//a = a | (5 << 1);
+	a |= (1<<3) | (1<<1);
 	printf("%x\n", a);
 
-	a = a & (~6);
+	//a = a & (~6);
+	a &= !((1<<1)+(1<<2));
 	printf("%x\n", a);
-
 	printf("%x\n", a&(7 << 5));
 
 	return 0;
