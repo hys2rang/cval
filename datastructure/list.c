@@ -32,6 +32,7 @@ void print_list() //head오ㅏ tail 사이의 각 노드 데이터 출력
 		node = node->next;
 	}
 }
+
 void remove_list(int data)
 {
 	List* node = head; //시작 dummy 노드를 알려줌
@@ -43,6 +44,19 @@ void remove_list(int data)
 	node->next = node->next->next;//찾았으면 
 	free(delete_node); //있어야됨
 }
+void movetofront(int data)
+{
+	List* node = head; //시작 dummy 노드를 알려줌
+	List* delete_node;//for free memory
+	while (node->next->key != data && node->next != node) { ////못찾았으면 옆칸으로 가겠
+		node = node->next;
+	}
+	delete_node = node->next;
+	node->next = node->next->next;//찾았으면 
+
+	delete_node->next = head->next;
+	head->next = delete_node;
+}
 int main(int argc, char** argv)
 {
 	init_list(); //리스트 자료구조의 초기화
@@ -51,7 +65,20 @@ int main(int argc, char** argv)
 	insert_list(5);
 	print_list();
 	puts("");
-	remove_list(2);
+	remove_list(3);
 	print_list();
+	puts("");
+	insert_list(2);
+	print_list();
+	puts("");
+
+	movetofront(5);
+	print_list();
+	puts("");
+
+	insert_list(8);
+	print_list();
+	puts("");
+
 	return 0;
 }
