@@ -10,7 +10,8 @@ struct _node {
 //int gg = 0;
 int cmp_node(const void* a, const void* b) //pointer 배열의 주소를 넘겨받는것
 {
-	return strcmp((*(node**)a)->name, (*(node * *)b)->name);
+	//singlepointer에 접근할 수 있는 것은 double pointer이므로 k[i]가 가르키고 있는 것에 접근하기 위해서는 double pointer가 필요하다.
+	return strcmp((*(node**)a)->name, (*(node * *)b)->name); 
 }
 node* p, * q;
 main()
