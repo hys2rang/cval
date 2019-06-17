@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 		puts("false");
 	}
 	//a = a | (5 << 1);
-	a |= (1<<3) | (1<<1);
+	a |= (1<<3) + (1<<1);
 	printf("%x\n", a);
 
 	//a = a & (~6);
