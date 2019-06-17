@@ -15,7 +15,7 @@ int cmp_node(const void* a, const void* b) //pointer 배열의 주소를 넘겨�
 node* p, * q;
 main()
 {
-	node* k[4];
+	node* k[4]; //pointer 배열 
 
 	p = (node*)malloc(sizeof(node));
 	strcpy(p->name, "ccc");
