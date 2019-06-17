@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 //양쪽 끝에 더미노드를 만들어서 이해
 /*
 */
@@ -57,6 +58,25 @@ void movetofront(int data)
 	delete_node->next = head->next;
 	head->next = delete_node;
 }
+void ordered_insert(int data)
+{
+	List* pre; //앞을 보면서 가는 녀석
+	List* chk; //실제 값을 보는 녀석
+
+	pre = head;
+	chk = head->next;
+
+	while (chk->key <= data && chk!=tail) { //data 와 chk 값이 다를 때
+		pre = pre->next;
+		chk = chk->next;
+	}
+
+	List* node = (List*)malloc(sizeof(List));
+	node->key = data;
+	pre->next = node;
+	node->next = chk;
+}
+
 int main(int argc, char** argv)
 {
 	init_list(); //리스트 자료구조의 초기화
@@ -76,9 +96,14 @@ int main(int argc, char** argv)
 	print_list();
 	puts("");
 
-	insert_list(8);
+	ordered_insert(8);
 	print_list();
 	puts("");
-
+	ordered_insert(6);
+	print_list();
+	puts("");
+	//모든리스트 삭제
+//transpose method 찾은녀석을 바로 앞녀석과 swap 하는
+//frequency count : 
 	return 0;
 }
