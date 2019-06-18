@@ -16,7 +16,7 @@ int main()
 
 	cout << AAA::aaa << endl;
 	cout << AAA::BBB::bbb << endl;
-	cout << ::ccc << endl;
+	cout << ::ccc << endl; //지역변수와 전역변수를 구별하기 위해서 '::'를 쓴다.
 	cout << ddd << endl;
 	cout << ::fff << endl;
 	namespace AB = AAA::BBB;
