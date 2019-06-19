@@ -17,9 +17,9 @@ public:
 		this->name = new char[strlen(name) + 1];
 		strcpy(this->name, name);
 		this->price = price;
+		cout << "--" << this << "--" << endl;
 	}
 	void showProductinfo()const {
-		cout << "--" << this << "--" << endl;
 		cout << "상품명 : " << name << endl;
 		cout << "상품가 : " << price << endl << endl;
 	}
@@ -32,14 +32,17 @@ int main()
 	Product prd1;
 	prd1.setProductInfo("공기청정기", 2000);
 	prd1.showProductinfo();
+	prd1.deleteProductName();
 
 	Product prd3;
 	prd3.setProductInfo("공기청정기", 2000);
 	prd3.showProductinfo();
+	prd3.deleteProductName();
 
 	Product* prd2 = new Product;
 	prd2->setProductInfo("가습기", 3000);
 	prd2->showProductinfo();
+	prd2->deleteProductName();
 
 	delete prd2;
 	return 0;
