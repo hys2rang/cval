@@ -71,6 +71,10 @@ public:
 	char* getcoolerEngine()const {
 		return cooler;
 	}
+	~intercoolerEngine() {
+		delete[] cooler;
+		cout << "intercoolerengine is destructed" << endl;
+	}
 };
 class turboEngine :public intercoolerEngine {
 	char turbocharger;
@@ -83,6 +87,9 @@ public:
 		cout << "cooler : " << getcoolerEngine() << endl;
 		cout << "charger : " << turbocharger << endl;
 	}
+	~turboEngine() {
+		cout << "turboEngine is destructed" << endl;
+	}
 };
 int main()
 {
@@ -92,7 +99,6 @@ int main()
 	Engine* eng2 = new intercoolerEngine(270, "물");
 	eng2->print();
 	cout <<"------------------------"<< endl;
-
 	Engine* eng3 = eng2;
 	eng3->print();
 	cout <<"------------------------"<< endl;
