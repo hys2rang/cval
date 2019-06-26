@@ -87,15 +87,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg,
 		break;
 	case WM_LBUTTONDOWN: //마우스의 왼쪽 버튼을 클릭했을 때 발생되는 메시지
 		//데이터를 획득하는 부분
-		hdc = GetDC(hwnd);
+		InvalidateRect(hwnd, NULL, false);
 		pt.x = LOWORD(lParam);
 		pt.y = HIWORD(lParam);
-		DrawCircle(hdc, pt);
 		ptList.push_back(pt);
 		break;
 	case WM_RBUTTONDOWN:
-		hdc = GetDC(hwnd);
-		DrawLine(hdc, ptList, cnt);
+		InvalidateRect(hwnd, NULL, false);
 		cnt = ptList.size();
 		if (lastpt.empty()) {
 			lastpt.push_back(0);//마지막 점의 위치
